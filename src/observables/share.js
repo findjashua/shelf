@@ -1,16 +1,15 @@
-import { funcSubject } from '../utils/funcSubject.js'
-import { profile$ } from './login.js'
+import { subject } from '../utils/subject.js'
+import { api } from '../utils/api.js'
 
-export const subjects = {
-  caption$: funcSubject(),
-  url$: funcSubject(),
-  share$: funcSubject()
-}
-
-export const caption$ = subjects.caption$
-  .map((e) => e.target.value)
+export const caption$ = subject
+  .filter(evt => { return evt.data.source === 'share.caption' })
+  .map(evt => { return evt.synthEvt.target.value })
   .startWith('')
 
-export const url$ = subjects.url$
-  .map((e) => e.target.value)
+export const url$ = subject
+  .filter(evt => { return evt.data.source === 'share.url' })
+  .map(evt => evt.synthEvt.target.value)
   .startWith('')
+
+export const share$ = subject
+  .filter(evt => { return evt.data.source === 'share.submit' })

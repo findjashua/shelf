@@ -1,8 +1,8 @@
 import { Subject } from 'rx'
 
-export const funcSubject = () => {
-  let subject = (value) => {
-    subject.onNext(value)
+const funcSubject = () => {
+  let subject = (data, synthEvt) => {
+    subject.onNext({ data, synthEvt })
   }
 
   for (var key in Subject.prototype) {
@@ -12,3 +12,5 @@ export const funcSubject = () => {
   Subject.call(subject)
   return subject
 }
+
+export const subject = funcSubject()

@@ -1,15 +1,15 @@
 import { Observable } from 'rx'
 
 import { profile$ } from './login.js'
-import { subjects, caption$, url$ } from './share.js'
-import { db } from '../db.js'
+import { caption$, url$, share$ } from './share.js'
+import { api } from '../utils/api.js'
 
-subjects.share$
-  .withLatestFrom(caption$, url$, profile$, (share, caption, url, profile) => {
+share$
+  .withLatestFrom(caption$, url$, profile$, (submit, caption, url, profile) => {
     return { caption, url, profile }
   })
   .subscribe((share) => {
-    db.create('share', share)
+    api.create('share', share)
   })
 
 // combine all observables into a single one
