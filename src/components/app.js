@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
-import { event$ } from '../observables/app.js'
+import React, { Component } from 'react'
+import { Login } from './login.js'
+import { Welcome } from './welcome.js'
 
 export class App extends Component {
+  getHeader(profile) {
+    return profile ? <Welcome {...profile}/> : <Login/>
+  }
+
   render() {
+    var profile = this.props.profile
     return (
       <div>
-        <input
-          placeholder='greeting'
-          value={this.props.greeting}
-          onChange={event$.greeting} />
-        <input
-          placeholder='name'
-          value={this.props.name}
-          onChange={event$.name} />
-        <p>{this.props.greeting} {this.props.name}</p>
+        { this.getHeader(profile) }
       </div>
-    );
+    )
   }
 }

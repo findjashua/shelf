@@ -49,6 +49,7 @@
     "webpack-hot-middleware": "^2.0.0"
   },
   "dependencies": {
+    "hellojs": "^1.9.4",
     "react": "^0.13.0",
     "rx": "^4.0.0"
   }

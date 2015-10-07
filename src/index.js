@@ -1,8 +1,8 @@
 import React from 'react';
-import { App } from './components/app';
-import { state$ } from './observables/state.js'
+import { App } from './components/app.js';
+import { store$ } from './observables/store.js'
 
-state$.
-    subscribe((state) => {
-        React.render(<App {...state}/>, document.getElementById('root'));
-    })
+store$
+  .subscribe((store) => {
+    React.render(<App {...store}/>, document.getElementById('root'));
+  })
