@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { Observable } from 'rx'
 
-import { Login } from './login.js'
+import { Login, profile$ } from './login.js'
 import { Welcome } from './welcome.js'
-import { Share } from './share.js'
+import { Share, caption$, url$, share$ } from './share.js'
+import { api } from '../api.js'
 
 export class App extends Component {
   getHeader(profile) {
@@ -19,3 +21,11 @@ export class App extends Component {
     )
   }
 }
+
+share$
+  .withLatestFrom(caption$, url$, profile$, (submit, caption, url, profile) => {
+    return { caption, url, profile }
+  })
+  .subscribe((share) => {
+    api.create('share', share)
+  })
