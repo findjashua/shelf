@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Observable } from 'rx'
 
-import { Login, profile$ } from './login.js'
-import { Welcome } from './welcome.js'
-import { Share, caption$, url$, share$ } from './share.js'
-import { api } from '../api.js'
+import { Login, profile$ } from './login'
+import { Welcome } from './welcome'
+import { Share, caption$, url$, share$ } from './share'
+import { api } from '../api'
 
 export class App extends Component {
   getHeader(profile) {

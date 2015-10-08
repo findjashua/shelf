@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { subject } from '../utils/subject.js'
+import { subject } from '../utils/funcSubject'
 
 export class Share extends Component {
   render() {

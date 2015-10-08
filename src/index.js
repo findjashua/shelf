@@ -1,6 +1,6 @@
 import React from 'react';
-import { App } from './components/app.js';
-import { store$ } from './store.js'
+import { App } from './components/app';
+import { store$ } from './store'
 
 store$
   .subscribe((store) => {

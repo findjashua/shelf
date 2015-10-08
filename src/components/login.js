@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Observable } from 'rx'
 
-import { subject } from '../utils/subject.js'
-import { hello } from '../utils/hello.js'
-import { api } from '../api.js'
+import { subject } from '../utils/funcSubject'
+import { hello } from '../utils/hello'
+import { api } from '../api'
 
 export class Login extends Component {
   render() {
